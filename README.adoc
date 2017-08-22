@@ -1,0 +1,4 @@
+= Sentry plugin
+
+This isn't really a plugin per se, but rather an empty `.hpi` containing the
+necessary dependencies for configuring and using Sentry from within Jenkins.
