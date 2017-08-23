@@ -39,6 +39,12 @@ class SentryPlugin extends Plugin {
             sleep 120
             while (true) {
                 LogManager.logManager.loggerNames.toList().each { loggerName ->
+                    /* Avoid excessive warnings */
+                    /* https://issues.jenkins-ci.org/browse/JENKINS-46404 */
+                    if (loggerName == 'org.jenkinsci.plugins.durabletask.ProcessLiveness') {
+                        continue
+                    }
+
                     Logger manager = LogManager.logManager.getLogger(loggerName)
 
                     boolean found = false
