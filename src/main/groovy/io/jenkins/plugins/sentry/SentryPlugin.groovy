@@ -41,22 +41,20 @@ class SentryPlugin extends Plugin {
                 LogManager.logManager.loggerNames.toList().each { loggerName ->
                     /* Avoid excessive warnings */
                     /* https://issues.jenkins-ci.org/browse/JENKINS-46404 */
-                    if (loggerName == 'org.jenkinsci.plugins.durabletask.ProcessLiveness') {
-                        continue
-                    }
+                    if (loggerName != 'org.jenkinsci.plugins.durabletask.ProcessLiveness') {
+                        Logger manager = LogManager.logManager.getLogger(loggerName)
 
-                    Logger manager = LogManager.logManager.getLogger(loggerName)
-
-                    boolean found = false
-                    manager.handlers.toList().each { handler ->
-                        if (handler.class == SentryHandler) {
-                            found = true
+                        boolean found = false
+                        manager.handlers.toList().each { handler ->
+                            if (handler.class == SentryHandler) {
+                                found = true
+                            }
                         }
-                    }
 
-                    if (!found) {
-                        LOG.info("Adding Sentry to ${loggerName}")
-                        manager.addHandler(sentry)
+                        if (!found) {
+                            LOG.info("Adding Sentry to ${loggerName}")
+                            manager.addHandler(sentry)
+                        }
                     }
                 }
                 /* Sleep for five minutes in this thread, to make sure we are always
