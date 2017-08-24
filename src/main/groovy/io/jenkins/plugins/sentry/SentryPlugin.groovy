@@ -44,9 +44,6 @@ class SentryPlugin extends Plugin {
                     if (loggerName != 'org.jenkinsci.plugins.durabletask.ProcessLiveness') {
                         Logger manager = LogManager.logManager.getLogger(loggerName)
 
-                        if (manager.handlers) {
-                        }
-
                         boolean found = false
                         manager?.handlers?.toList().each { handler ->
                             if (handler.class == SentryHandler) {
