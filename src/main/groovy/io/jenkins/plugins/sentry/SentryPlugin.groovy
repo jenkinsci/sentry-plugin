@@ -53,7 +53,7 @@ class SentryPlugin extends Plugin {
 
                         if (!found) {
                             LOG.info("Adding Sentry to ${loggerName}")
-                            manager.addHandler(sentry)
+                            manager?.addHandler(sentry)
                         }
                     }
                 }
