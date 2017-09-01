@@ -35,7 +35,7 @@
   </parent>
 
 
-  <groupId>io.plugins.jenkins</groupId>
+  <groupId>io.jenkins.plugins</groupId>
   <artifactId>sentry</artifactId>
   <version>1.5.0</version>
   <packaging>hpi</packaging>
