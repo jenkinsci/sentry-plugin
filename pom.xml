@@ -39,6 +39,8 @@
   <artifactId>sentry</artifactId>
   <version>1.5.0</version>
   <packaging>hpi</packaging>
+  <description>Integrates Jenkins with the Sentry error reporting service</description>
+  <url>http://wiki.jenkins-ci.org/display/JENKINS/Sentry+Plugin</url>
 
   <name>Sentry plugin</name>
 

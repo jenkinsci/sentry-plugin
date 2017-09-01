@@ -1,4 +1,12 @@
 = Sentry plugin
 
-This isn't really a plugin per se, but rather an empty `.hpi` containing the
-necessary dependencies for configuring and using Sentry from within Jenkins.
+
+The Sentry plugin helps report errors and warnings from Jenkins into
+link:https://sentry.io[Sentry].
+
+
+== Configuration
+
+Currently the plugin doesn't have any user-visible configuration and relies on
+the conventional `SENTRY_DSN` environment variable to determine where to send
+Sentry events.
