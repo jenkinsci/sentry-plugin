@@ -17,13 +17,6 @@ class SentryPlugin extends Plugin {
 
         Sentry.init()
 
-        System.env.each { key, value ->
-            key.eachMatch('SENTRY_TAG_(\\w+)') { match ->
-                LOG.info("Adding a tag for `${match[1]}` with `${value}`")
-                Sentry.context.addTag(match[1], value)
-            }
-        }
-
         if (!System.env.get('SENTRY_NO_LOGWATCHER')) {
             addLogWatcher()
         }
@@ -45,7 +38,7 @@ class SentryPlugin extends Plugin {
                         Logger manager = LogManager.logManager.getLogger(loggerName)
 
                         boolean found = false
-                        manager?.handlers?.toList().each { handler ->
+                        manager?.handlers?.toList()?.each { handler ->
                             if (handler.class == SentryHandler) {
                                 found = true
                             }
@@ -53,7 +46,7 @@ class SentryPlugin extends Plugin {
 
                         if (!found) {
                             LOG.info("Adding Sentry to ${loggerName}")
-                            manager?.addHandler(sentry)
+                            manager?.addHandler(sentry as Handler)
                         }
                     }
                 }

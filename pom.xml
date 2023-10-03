@@ -31,13 +31,13 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>2.2</version>
+    <version>4.74</version>
   </parent>
 
 
   <groupId>io.jenkins.plugins</groupId>
   <artifactId>sentry</artifactId>
-  <version>1.5.0</version>
+  <version>6.30.0</version>
   <packaging>hpi</packaging>
   <description>Integrates Jenkins with the Sentry error reporting service</description>
   <url>http://wiki.jenkins-ci.org/display/JENKINS/Sentry+Plugin</url>
@@ -64,7 +64,12 @@
     <dependency>
       <groupId>io.sentry</groupId>
       <artifactId>sentry</artifactId>
-      <version>1.5.0</version>
+      <version>6.30.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.sentry</groupId>
+      <artifactId>sentry-jul</artifactId>
+      <version>6.30.0</version>
     </dependency>
   </dependencies>
 
@@ -83,30 +88,6 @@
   </pluginRepositories>
 
   <properties>
-    <jenkins.version>2.60.3</jenkins.version>
-    <java.level>7</java.level>
+    <jenkins.version>2.401.3</jenkins.version>
   </properties>
-
- <build>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.gmaven</groupId>
-        <artifactId>gmaven-plugin</artifactId>
-        <configuration>
-          <providerSelection>1.8</providerSelection>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>generateStubs</goal>
-              <goal>compile</goal>
-              <goal>generateTestStubs</goal>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
-
 </project>

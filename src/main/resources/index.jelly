@@ -1,0 +1,4 @@
+<?jelly escape-by-default='true'?>
+<div>
+   Integrates Jenkins with the Sentry error reporting service
+</div>
